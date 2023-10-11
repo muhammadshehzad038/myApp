@@ -4,9 +4,21 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import {ArrowLeftIcon} from 'react-native-heroicons/solid'
 import { themeColors } from '../theme'
 import { useNavigation } from '@react-navigation/native'
+import { firebase } from '../firebase'
 
 
 export default function ResLogin() {
+  const [email,setEmail]=useState('');
+  const [password,setPassword]=useState('');
+  
+    const loginUser= async(email,password)=>{
+        try{
+            await firebase.auth().signInWithEmailAndPassword(email,password)
+        } catch(error) {
+            alert(error.message)
+        }
+    }
+
   const navigation = useNavigation();
   return (
     <View className="flex-1 bg-white" style={{backgroundColor: themeColors.bg}}>
@@ -31,15 +43,19 @@ export default function ResLogin() {
             <Text className="text-gray-700 ml-4">Email Address</Text>
             <TextInput 
               className="p-4 bg-gray-100 text-gray-700 rounded-2xl mb-3"
+              value={email}
               placeholder="Enter email"
+              onChangeText={(email)=> setEmail(email)}
               //value="john@gmail.com" 
             />
 
             <Text className="text-gray-700 ml-4">Password</Text>
-            <TextInput 
+            <TextInput xs
               className="p-4 bg-gray-100 text-gray-700 rounded-2xl"
               secureTextEntry
+              value={password}
               placeholder="password"
+              onChangeText={(password)=> setPassword(password)}
               //value="test12345" 
             />
             <TouchableOpacity onPress={()=> navigation.navigate('ResForgetPassword')} className="flex items-end">

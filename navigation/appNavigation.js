@@ -69,10 +69,10 @@ import DairyProductList from '../screens/DairyProductList';
 import SpicesList from '../screens/SpicesList';
 import SeaFoodList from '../screens/SeaFoodList';
 import { firebase } from '../firebase';
-
+import Chat from '../Chat/Chat';
+import DrawerScreen from './DrawerScreen';
 
 const Stack = createNativeStackNavigator();
-const Drawer = createDrawerNavigator();
 
  
 export default function AppNavigation() {
@@ -112,11 +112,13 @@ export default function AppNavigation() {
     return(
       <NavigationContainer>
       <Stack.Navigator>
+      <Stack.Screen name="Drawer" options={{headerShown: false}}  component={DrawerScreen}/>  
       <Stack.Screen name="BottomNavigation" options={{headerShown: false}}  component={AnimTab2}/>
-      <Stack.Screen name="SupplierDashboard" options={{headerShown: false}}  component={drawerNavigator} />
+      <Stack.Screen name="SupplierDashboard" options={{headerShown: false}}  component={SupplierDashboard} />
       <Stack.Screen name="Dashboard" options={{headerShown: false}} component={Dashboard} />
-      <Stack.Screen name="SupplierInventory" options={{headerShown: false}} component={drawerNavigator} /> 
-      <Stack.Screen name="SupplierStore" options={{headerShown: false}} component={drawerNavigator} />
+      <Stack.Screen name="chat" options={{headerShown: false}} component={Chat} />
+      <Stack.Screen name="SupplierInventory" options={{headerShown: false}} component={SupplierInventory} /> 
+      <Stack.Screen name="SupplierStore" options={{headerShown: false}} component={SupplierStore} />
       <Stack.Screen name="CreateStore" options={{headerShown: false}}  component={CreateStore} />
       <Stack.Screen name="MyStore" options={{headerShown: false}}  component={MyStore} />
       <Stack.Screen name="MyProfile" options={{headerShown: false}}  component={MyProfile} />
@@ -124,7 +126,7 @@ export default function AppNavigation() {
       <Stack.Screen name="RestaurantRequest" options={{headerShown: false}}  component={RestaurantRequest} />
       <Stack.Screen name="BiddingScreen" options={{headerShown: false}}  component={BiddingScreen} />
       <Stack.Screen name="BidConfirmed" options={{headerShown: false}}  component={BidConfirmed} />
-      <Stack.Screen name="Chats" options={{headerShown: false}}  component={Chats} />
+      <Stack.Screen name="Chats" options={{headerShown: true}}  component={Chat} />
       <Stack.Screen name="PersonalChat" options={{headerShown: false}}  component={PersonalChat} />
       <Stack.Screen name="AddItem" options={{headerShown: false}}  component={AddItem} />
       <Stack.Screen name="ProductsList" options={{headerShown: false}}  component={ProductsList} />
@@ -163,7 +165,8 @@ export default function AppNavigation() {
       <Stack.Screen name="MeatList" options={{headerShown: false}}  component={MeatList}/>           
       <Stack.Screen name="DairyProductList" options={{headerShown: false}}  component={DairyProductList}/>           
       <Stack.Screen name="SpicesList" options={{headerShown: false}}  component={SpicesList}/>           
-      <Stack.Screen name="SeaFoodList" options={{headerShown: false}}  component={SeaFoodList}/>           
+      <Stack.Screen name="SeaFoodList" options={{headerShown: false}}  component={SeaFoodList}/>
+                
 </Stack.Navigator>
   </NavigationContainer>
     )

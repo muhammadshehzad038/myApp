@@ -24,12 +24,11 @@ const AppHeader = ({
 	iconColor = 'black',
 	titleAlight,
 	optionalBadge,
-	navigation = useNavigation(),
 }) => {
 
 	const LeftView = () => (
 		<View style={styles.view}>
-			{menu && <TouchableOpacity onPress={onPressMenu}>
+			{menu && <TouchableOpacity onPress={''}>
 				<Feather name="menu" size={IconSize} color={iconColor} />
 			</TouchableOpacity>}
 			{back && <TouchableOpacity onPress={onPressBack}>

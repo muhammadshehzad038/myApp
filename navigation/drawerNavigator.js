@@ -20,7 +20,7 @@ const DrawerNavigator = () => {
         headerShown: false,
         drawerActiveBackgroundColor: "#B666D2",
         drawerActiveTintColor: "#FFFFFF",
-        drawerLabelStyle: {
+        drawerLabelStyle: { 
             marginLeft: -20,
         },
         }}>

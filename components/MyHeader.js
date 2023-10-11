@@ -4,6 +4,8 @@ import { Badge, Surface, Text, Title } from 'react-native-paper'
 import Feather from 'react-native-vector-icons/Feather'
 import Colors from '../constants/Colors';
 import { useNavigation } from '@react-navigation/native'
+import CustomDrawer from './customDrawer';
+
 import { Sidebar } from 'react-native-feather';
 
 const IconSize = 24;
@@ -28,10 +30,9 @@ const AppHeader = ({
 	optionalBadge,
 	navigation = useNavigation(),
 }) => {
-
 	const LeftView = () => (
 		<View style={styles.view}>
-			{menu && <TouchableOpacity onPress={onPressMenu}>
+			{menu && <TouchableOpacity onPress={navigation.openDrawer()}>
 				<Feather name="menu" size={IconSize} color={iconColor} />
 			</TouchableOpacity>}
 			{back && <TouchableOpacity onPress={onPressBack}>
@@ -45,7 +46,7 @@ const AppHeader = ({
 	const RightView = () => (
 		rightComponent ? rightComponent :
 			<View style={[styles.view, styles.rightView]}>
-				{optionalBtn && <TouchableOpacity style={styles.rowView} onPress={()=> navigation.navigate('Chats')}>
+				{optionalBtn && <TouchableOpacity style={styles.rowView} onPress={()=> navigation.navigate('chat')}>
 					<Feather name="message-square" size={IconSize} color={iconColor} />
 					{optionalBadge && <Badge style={{ position: 'absolute', top: -5, right: -10 }}>{optionalBadge}</Badge>}
 				</TouchableOpacity>}
