@@ -71,7 +71,12 @@ import SeaFoodList from '../screens/SeaFoodList';
 import { firebase } from '../firebase';
 import Chat from '../Chat/Chat';
 import DrawerScreen from './DrawerScreen';
-
+import AddInventoryItems from '../screens/AddInventoryItems';
+import AddCategory from '../screens/AddCategory';
+import Details from '../screens/Details';
+import Dropdown from '../Dropdown';
+import NextScreen from '../screens/NextScreen';
+import Categories from '../components/items';
 const Stack = createNativeStackNavigator();
 
  
@@ -166,7 +171,11 @@ export default function AppNavigation() {
       <Stack.Screen name="DairyProductList" options={{headerShown: false}}  component={DairyProductList}/>           
       <Stack.Screen name="SpicesList" options={{headerShown: false}}  component={SpicesList}/>           
       <Stack.Screen name="SeaFoodList" options={{headerShown: false}}  component={SeaFoodList}/>
-                
+      <Stack.Screen name='AddInventoryItems' options={{headerShown: false}} component={AddInventoryItems} />  
+      <Stack.Screen name='AddCategory' options={{headerShown: false}} component={AddCategory} />          
+      <Stack.Screen name='details' options={{headerShown: false}} component={Details} />  
+      <Stack.Screen name='Dropdown' options={{headerShown: false}} component={Dropdown} />   
+      <Stack.Screen name='Categories' options={{headerShown: false}} component={Categories} />       
 </Stack.Navigator>
   </NavigationContainer>
     )
