@@ -42,7 +42,7 @@ const AddInventoryItems = ({navigation}) => {
     };
   
     // Navigate to the next screen and pass the itemData
-    navigation.navigate('Categories', { itemData });
+    navigation.navigate('NextScreen', { itemData });
   };
   return (
     <View

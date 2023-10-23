@@ -1,4 +1,3 @@
-
 import React, {useState} from 'react';
 import {
   View,
@@ -322,6 +321,7 @@ const SupplierInventory = ({navigation}) => {
             </TouchableOpacity>
     </View>
   );
-};
+}
 
-export default SupplierInventory;
+
+export default SupplierInventory

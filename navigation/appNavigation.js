@@ -175,7 +175,7 @@ export default function AppNavigation() {
       <Stack.Screen name='AddCategory' options={{headerShown: false}} component={AddCategory} />          
       <Stack.Screen name='details' options={{headerShown: false}} component={Details} />  
       <Stack.Screen name='Dropdown' options={{headerShown: false}} component={Dropdown} />   
-      <Stack.Screen name='Categories' options={{headerShown: false}} component={Categories} />       
+      <Stack.Screen name='NextScreen' options={{headerShown: false}} component={NextScreen} />       
 </Stack.Navigator>
   </NavigationContainer>
     )

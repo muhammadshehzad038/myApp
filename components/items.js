@@ -6,10 +6,8 @@ export const COLOURS = {
     accentRed: '#FF9801',
     accentPink: '#F96165',
   };
-  const Categories = ({ route }) => {
-    const itemData = route.params ? route.params.itemData : null;
   
-     const categories = [
+  export const Categories = [
     {
       name: 'Fruits',
       image: require('../assets/fruit/fruit.jpg'),
@@ -146,34 +144,3 @@ export const COLOURS = {
       ],
     },
   ];
-  if (itemData) {
-    const targetCategory = categories.find(category => category.name === 'Fruits');
-    if (targetCategory) {
-      targetCategory.items.push(itemData);
-    }
-}
-
-return (
-  <View>
-    {categories.map(category => (
-      <View key={category.name}>
-        <Text>{category.name}</Text>
-        <Image source={category.image} />
-        {category.items.map(item => (
-          <View key={item.ID}>
-             <Text>Name: {item.image}</Text>
-            <Text>Name: {item.name}</Text>
-            <Text>ID: {item.ID}</Text>
-            <Text>Name: {item.Qty}</Text>
-            <Text>Name: {item.price}</Text>
-
-            {/* Render other item properties */}
-          </View>
-        ))}
-      </View>
-    ))}
-  </View>
-);
-};
-
-export default Categories;

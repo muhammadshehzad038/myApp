@@ -6,12 +6,20 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MyHeader from '../components/MyHeader';
 import { color } from 'react-native-reanimated';
-import { useState } from 'react';
 
 const Details = ({route, navigation}) => {
-  const { name, price, image, Qty, ID } = route.params;
-  const [newQty, setNewQty] = useState(Qty);
-  const [newPrice, setNewPrice] = useState(price);
+  const {
+    name,
+    price,
+    image,
+    size,
+    Qty,
+    ID,
+    crust,
+    delivery,
+    ingredients,
+    isTopOfTheWeek,
+  } = route.params;
 
   return (
     <View
@@ -30,7 +38,6 @@ const Details = ({route, navigation}) => {
     optionalBtn="shopping-cart"
     onRightPress={() => console.log('right')}
   />
-  <ScrollView>
       <View
           style={{
             marginTop: 40,
@@ -46,7 +53,6 @@ const Details = ({route, navigation}) => {
             borderTopRightRadius:200
 
           }}>
-            
           <Image
             source={image}
             style={{
@@ -110,10 +116,8 @@ const Details = ({route, navigation}) => {
                 color: COLOURS.black,
                 fontWeight: '600',
                 opacity: 0.6
-              }}
-              value={Name}
-              onChangeText={(text)=>setName(text)}>
-              {name}
+              }}>
+              {name} 
             </TextInput>
           </View>
 
@@ -235,8 +239,6 @@ const Details = ({route, navigation}) => {
         
         </TouchableOpacity>
       </View>
-  </ScrollView>
-
     </View>
   );
 };
